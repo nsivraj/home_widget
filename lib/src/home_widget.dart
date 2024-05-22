@@ -173,7 +173,9 @@ class HomeWidget {
           child: repaintBoundary,
         ),
         configuration: ViewConfiguration(
-          size: logicalSize,
+          physicalConstraints: BoxConstraints.tight(logicalSize) *
+              ui.PlatformDispatcher.instance.implicitView!.devicePixelRatio,
+          logicalConstraints: BoxConstraints.tight(logicalSize),
           devicePixelRatio: 1.0,
         ),
       );
